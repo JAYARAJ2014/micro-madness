@@ -43,6 +43,20 @@ namespace Catalog.Api.Controllers
             return Ok(product);
         }
 
+        [HttpGet]
+        [Route("[action]/{category}", Name = "GetProductByCategory")]
+        [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(string categoryName)
+        {
+            var products = await _repo.GetProductByCategory(categoryName);
+            if (products == null)
+            {
+                _logger.LogWarning($"No products under  : {categoryName}.");
+                return Ok(0);
+            }
+            return Ok(products);
+        }
+
     }
 
 }
