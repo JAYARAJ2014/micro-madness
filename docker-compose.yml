@@ -1,6 +1,6 @@
 version: "3.4"
 
-srevices:
+services:
   catalogdb:
     image: mongo
   catalog.api:
@@ -9,4 +9,4 @@ srevices:
       context: .
       dockerfile: Services/Catalog/Catalog.Api/Dockerfile
 volumes:
-  mongo_data: mongo_data:/data/db
+  mongo_data:
