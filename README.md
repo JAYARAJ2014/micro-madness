@@ -1,6 +1,13 @@
 # micro-madness
 
 Sample Micro Services architecture implementation using AspNet Core and various data sources (Mongo, Redis, PostgreSQL). Credits to @mehmetozkaya for his course that walks through this development process.  Thanks a lot to Mehmet Ozkaya. See his git hub here: https://github.com/mehmetozkaya/AspnetMicroservices
+### Technologies
+.NET 5
+Docker  
+MongoDB
+Redis
+PostgreSQL
+gRPC
 
 ## To Run the show
 Once the code is cloned , navigate to the `src`  directory under the project. 
