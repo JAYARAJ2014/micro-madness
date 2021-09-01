@@ -4,16 +4,16 @@ FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
 WORKDIR /app
 # What port to expose
 EXPOSE 80
-RUN ls -l 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build 
 WORKDIR /src
+RUN echo $(pwd)
 RUN ls -l
-COPY ["Catalog.Api.csproj", "Services/Catalog/Catalog.Api/"]
-#RUN dotnet restore "Services/Catalog/Catalog.Api/Catalog.Api.csproj"
-COPY . Services/Catalog/Catalog.Api
+COPY ["Services/Catalog/Catalog.Api/Catalog.Api.csproj", "Services/Catalog/Catalog.Api/"]
+RUN ls -l
+RUN dotnet restore "Services/Catalog/Catalog.Api/Catalog.Api.csproj"
+COPY . .
 WORKDIR "/src/Services/Catalog/Catalog.Api"
-RUN pwd
-RUN ls -l
+
 RUN dotnet build "Catalog.Api.csproj" -c Release -o /app/build 
 
 FROM build AS publish
