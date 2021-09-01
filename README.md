@@ -1,54 +1,22 @@
 # micro-madness
 
-Sample Micro Service
+Sample Micro Services architecture implementation using AspNet Core and various data sources (Mongo, Redis, PostgreSQL). Credits to @mehmetozkaya for his course that walks through this development process.  Thanks a lot to Mehmet Ozkaya
 
-\***\* Setting up MongoDB using Docker \*\***
-//get mongo
-docker pull mongo
-//running the docker container with mongo
-docker run -d -p 27017:27017 --name shopping-mongo mongo
+## To Run the show
+Once the code is cloned , navigate to the `src`  directory under the project. 
+Type the following command to standup the entire application suite locally
 
-//for troubleshooting
+`docker-compose -f docker-compose.yml -f docker-compose.override.yml  up -d`
 
-docker logs shopping-mongo
+Type the following command to stop
 
-docker logs -f shopping-mongo
+`docker-compose -f docker-compose.yml -f docker-compose.override.yml  down`
 
-//logon interactively to docker container
-docker exec -it shopping-mongo /bin/bash
+to view portainer page goto `http://localhost:9000/#`
+to view the basket api documentation goto `http://localhost:8001/swagger/index.html`
+to view the catalog api documentation goto `http://localhost:8000/swagger/index.html`
 
-//from .NET Cli use the following command to see packages installed.
-dotnet list package
+#### Please note that the docker volume for Portainer in this example is set to Linux. `- /var/run/docker.sock:/var/run/docker.sock`  . Look at portainer documentation for how to set this up for Windows / Mac etc.
 
-to dealwith mongobd we will need MongoDB.Driver package.
 
-//Use Dockerfile to define the pull, build and publish for the core api.
 
-docker build .
-
-//Docker Compose to run and stop the entire suite of apps
-
-docker-compose -f docker-compose.yml -f docker-compose.override.yml down
-docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
-
-//Redis
-docker run -d -p 6379:6379 --name aspnet-redis redis
-
-1
--- Now we can open interactive terminal for redis
-
-docker exec -it aspnetrun-redis /bin/bash
-
-2
--- After that, we are able to run redis commands.
-Let me try with
-
-redis-cli
-ping - PONG
-
-set key value
-get key
-set name mehmet
-get name
-
-set <key> <value> [EX seconds|PX milliseconds|EXAT timestamp|PXAT milliseconds-time
