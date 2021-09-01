@@ -1,0 +1,11 @@
+{
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "omnisharp.enableImportCompletion": true,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "omnisharp.organizeImportsOnFormat": true,
+    "omnisharp.disableMSBuildDiagnosticWarning": true,
+    "csharp.semanticHighlighting.enabled": true,
+    "csharp.suppressHiddenDiagnostics": false,
+    "omnisharp.enableAsyncCompletion": true,
+    "omnisharp.enableMsBuildLoadProjectsOnDemand": true
+}
