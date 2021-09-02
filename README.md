@@ -17,7 +17,8 @@ Once the code is cloned , navigate to the `src` directory under the project.
 Type the following command to standup the entire application suite locally
 
 `docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d`
-
+OR
+`docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d --build`
 Type the following command to stop
 
 `docker-compose -f docker-compose.yml -f docker-compose.override.yml down`
