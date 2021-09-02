@@ -25,9 +25,9 @@ namespace Discount.Api.Repositories
             ("INSERT INTO Coupon(ProductName, Description, Amount) VALUES (@ProductName, @Description, @Amount)",
             new { coupon.ProductName, coupon.Description, coupon.Amount });
 
-            if (affected == 0)
-                return false;
-            return true;
+            if (affected != 0)
+                return true;
+            return false;
         }
 
         public async Task<bool> DeleteDiscount(string productName)
