@@ -36,7 +36,7 @@ namespace Discount.Api.Repositories
         (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
 
             var affected = await connection.ExecuteAsync
-            ("DELETE FROM Coupon WHERE ProductName=@ProductName", new { ProductName= productName});
+            ("DELETE FROM Coupon WHERE ProductName=@ProductName", new { ProductName = productName });
 
 
             if (affected == 0)
@@ -65,7 +65,7 @@ namespace Discount.Api.Repositories
          (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
 
             var affected = await connection.ExecuteAsync
-            ("UPDATE Coupon SET ProductName=@ProductName, Description=@Description, Amount=@Amount VALUES (@ProductName, @Description, @Amount WHERE ID=@Id", new { coupon.ProductName, coupon.Description, coupon.Amount, coupon.Id });
+            ("UPDATE Coupon SET ProductName=@ProductName, Description=@Description, Amount=@Amount WHERE ID=@Id", new { coupon.ProductName, coupon.Description, coupon.Amount, coupon.Id });
 
 
             if (affected == 0)
