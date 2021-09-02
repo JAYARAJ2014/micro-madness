@@ -1,4 +1,3 @@
-
 using System;
 using System.Threading.Tasks;
 using Dapper;
@@ -51,7 +50,7 @@ namespace Discount.Api.Repositories
         public async Task<bool> UpdateDiscount(Coupon coupon)
         {
             using var connection = new NpgsqlConnection(_connectionString);
-
+            System.Console.WriteLine(coupon.ToString());
             var affected = await connection.ExecuteAsync
             ("UPDATE Coupon SET ProductName=@ProductName, Description=@Description, Amount=@Amount WHERE ID=@Id", new { coupon.ProductName, coupon.Description, coupon.Amount, coupon.Id });
 

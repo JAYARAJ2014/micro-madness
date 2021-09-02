@@ -16,7 +16,6 @@ namespace Discount.Api.Controllers
         public DiscountController(IDiscountRepo repo)
         {
             _repo = repo;
-
         }
         [HttpGet("{productName}", Name = "GetDiscount")]
         [ProducesResponseType(typeof(Coupon), (int)HttpStatusCode.OK)]
@@ -30,7 +29,8 @@ namespace Discount.Api.Controllers
         public async Task<ActionResult<Coupon>> CreateDiscount([FromBody] Coupon coupon)
         {
             await _repo.CreateDiscount(coupon);
-            return CreatedAtRoute("GetDiscount", new { productName = coupon.ProductName });
+            return Ok(coupon);
+            // return CreatedAtRoute("GetDiscount", new { productName = coupon.ProductName }, coupon);
         }
         [HttpPut]
         [ProducesResponseType(typeof(Coupon), (int)HttpStatusCode.OK)]
