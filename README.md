@@ -2,8 +2,6 @@
 
 A sample Micro Services architecture implementation using AspNet Core and various data sources (Mongo, Redis, PostgreSQL). 
 
-> Credits and Thanks to @mehmetozkaya for his course that walks through this development process.  See his git hub here: https://github.com/mehmetozkaya/AspnetMicroservices
-
 ## Technologies
 
 - .NET 5 (Web API, Entity Framework, Dapper, AutoMapper)
