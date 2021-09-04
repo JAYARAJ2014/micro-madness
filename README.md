@@ -31,3 +31,17 @@ Type the following command to stop
 
 
 #### Please note that the docker volume for Portainer in this example is set to Linux. `- /var/run/docker.sock:/var/run/docker.sock` . Look at portainer documentation for how to set this up for Windows / Mac etc.
+
+
+## GRPC 
+When adding GRPC in the Discount.Grpc project as Server we have to follow the following steps
+
+1. Add Grpc tools globally `dotnet tool install -g dotnet-grpc`
+2. Install Grpc Nuget Package `Grpc.AspNetCore`
+3. Modify project to include Grpc item group
+    ```
+    <ItemGroup>
+    <Protobuf Include="..\..\Discount\Discount.Grpc\Protos\discount.proto" GrpcServices="Client">
+      <Link>Protos\discount.proto</Link>
+    </Protobuf>
+    ```

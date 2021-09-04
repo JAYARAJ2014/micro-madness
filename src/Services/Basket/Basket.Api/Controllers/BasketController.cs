@@ -33,6 +33,7 @@ namespace Basket.Api.Controllers
         [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ShoppingCart>> UpdateBasket([FromBody] ShoppingCart basket)
         {
+            //Consume Discount GRPC
             return Ok(await _repo.UpdateBasket(basket));
         }
 
