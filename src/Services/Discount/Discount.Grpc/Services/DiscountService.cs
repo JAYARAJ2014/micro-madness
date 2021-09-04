@@ -1,13 +1,10 @@
 using System;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using AutoMapper;
 using Discount.Grpc.Entities;
 using Discount.Grpc.Protos;
 using Discount.Grpc.Repositories;
 using Grpc.Core;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace Discount.Grpc.Services
@@ -50,20 +47,19 @@ namespace Discount.Grpc.Services
             _logger.LogInformation($"DeleteDiscount Success. Product Name: {request.ProductName}");
             return new DeleteDiscountResponse { Success = deleted };
         }
-    }
-}
-public override async Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
-{
-    var coupon = await _repo.GetDiscount(request.ProductName);
 
-    if (coupon == null)
-    {
-        throw new RpcException(new Status(StatusCode.NotFound, $"Discount with ProductName={request.ProductName} not found"));
-    }
-    _logger.LogInformation($"Discount is retreived for Product: {request.ProductName}, Amount: {coupon.Amount}")
+        public override async Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
+        {
+            var coupon = await _repo.GetDiscount(request.ProductName);
+
+            if (coupon == null)
+            {
+                throw new RpcException(new Status(StatusCode.NotFound, $"Discount with ProductName={request.ProductName} not found"));
+            }
+            _logger.LogInformation($"Discount is retreived for Product: {request.ProductName}, Amount: {coupon.Amount}")
             var couponModel = _mapper.Map<CouponModel>(coupon);
-    return couponModel;
-}
+            return couponModel;
+        }
+    }
 }
 
-}
