@@ -14,9 +14,11 @@ namespace Basket.Api.GrpcServices
             _grpcServiceClient = grpcServiceClient ?? throw new ArgumentNullException(nameof(grpcServiceClient));
         }
 
-        // public async Task<CouponModel> GetDiscount(string productName){
+        public async Task<CouponModel> GetDiscount(string productName)
+        {
+            var discountRequest = new GetDiscountRequest { ProductName = productName };
+            return await _grpcServiceClient.GetDiscountAsync(discountRequest);
+        }
 
     }
-}
-
 }
