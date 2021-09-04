@@ -1,14 +1,15 @@
 # micro-madness
 
 A sample Micro Services architecture implementation using AspNet Core and various data sources (Mongo, Redis, PostgreSQL). 
+This repo is a work-in-progress
 
 ## Technologies
 
 - .NET 5 (Web API, Entity Framework, Dapper, AutoMapper)
-- Docker  (portainer to manage containers)
+- Docker  (Using portainer to manage containers)
 - MongoDB
 - Redis
-- PostgreSQL (pgAdmin is used to Manage)
+- PostgreSQL (pgAdmin is used to Manage DB)
 - gRPC
 
 ## To Run the show
@@ -30,10 +31,14 @@ Type the following command to stop
 * To view pgadmin: `http://localhost:5050/`
 
 
-#### Please note that the docker volume for Portainer in this example is set to Linux. `- /var/run/docker.sock:/var/run/docker.sock` . Look at portainer documentation for how to set this up for Windows / Mac etc.
+#### NOTE: 
+Please note that the docker volume for Portainer in this example is set to Linux. 
+`- /var/run/docker.sock:/var/run/docker.sock` .
+ Look at portainer documentation for how to set this up for Windows / Mac etc.
 
 
 ## GRPC 
+Read about GRPC here: `https://grpc.io/docs/what-is-grpc/introduction/`
 When adding GRPC in the Discount.Grpc project as Server we have to follow the following steps
 
 1. Add Grpc tools globally `dotnet tool install -g dotnet-grpc`
