@@ -1,6 +1,17 @@
 # micro-madness
 
 A sample Micro Services architecture implementation using AspNet Core and various data sources (Mongo, Redis, PostgreSQL). 
+
+#####Services
+Catalog Api   =>  MongoDb 
+Basket Api    =>  Redis Distributed Cache
+Discount Api  =>  PostgreSQL & Dapper
+Discount GRPC =>  PostgreSQL & Dapper
+Ordering Api  =>  Sql Server & EF Core
+  ASP.NET Core Web App
+  - Implements DDD, CQRS and Clean Architecture applying SOLID principles.
+  - Code First EF Core
+  
 This repo is a work-in-progress
 
 ## Technologies
